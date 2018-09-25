@@ -12,7 +12,6 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Injectable()
 export class WebsocketDataServiceService implements OnInit {
-
   private _timerOutArray: any[] = [];
   private _currentDay = 0;
   private _currentMonth = 0;
@@ -49,7 +48,6 @@ export class WebsocketDataServiceService implements OnInit {
   private _lastReport: any;
   // public heartbeat_interval: number;
 
-
   private _otherMessage: any;
 
   public clientSource = new BehaviorSubject<Message>(this._client);
@@ -60,7 +58,7 @@ export class WebsocketDataServiceService implements OnInit {
   public monthSource = new BehaviorSubject<any>(this._selectedMonth);
   public yearSource = new BehaviorSubject<any>(this._selectedYear);
   public otherSource = new BehaviorSubject<any>(this._otherMessage);
-  private timeOut_runner: NodeJS.Timer;
+  // private timeOut_runner: NodeJS.Timer;
   public currentDeviceSource = new BehaviorSubject<any>(this._currentDevice);
   public currentPaymentSource = new BehaviorSubject<any>(this._currentPayment);
   public currentSubUserSource = new BehaviorSubject<any>(this._currentSubUser);
@@ -75,7 +73,6 @@ export class WebsocketDataServiceService implements OnInit {
     this.currentSubUserSource.next(this._currentSubUser);
   }
   public refreshCurrentDevice() {
-
     this.currentDeviceSource.next(this._currentDevice);
   }
   public refreshArrayDevice() {
@@ -103,15 +100,9 @@ export class WebsocketDataServiceService implements OnInit {
     this.currentLastreportSource.next(this._lastReport);
   }
 
-
-
-
-
   public refreshNewUserMessage() {
     this.newUserSource.next(this._newUser);
   }
-
-
 
   public refreshUserDetails() {
     this.currentUserSource.next(this._currentUserdetail);
@@ -144,7 +135,10 @@ export class WebsocketDataServiceService implements OnInit {
     this._selectedMonth = new Date().getMonth() + 1;
     this._selectedYear = new Date().getFullYear();
   }
-  constructor(private chatService: ChatService, private sanitizer: DomSanitizer) {
+  constructor(
+    private chatService: ChatService,
+    private sanitizer: DomSanitizer
+  ) {
     // this._pouch = new PouchDB('_client');
     this._timerOutArray = [];
     this.setCancelSending();
@@ -154,7 +148,6 @@ export class WebsocketDataServiceService implements OnInit {
       try {
         if (d !== undefined) {
           if (d['command'] !== undefined) {
-
             console.log('changed from server');
             // console.log(d);
             this._server_event.push(d);
@@ -188,7 +181,9 @@ export class WebsocketDataServiceService implements OnInit {
                 if (d['client']['data']['command'] === 'send-check-balance') {
                   console.log(d['client'].data.message);
                 }
-                if (d['client']['data']['command'] === 'received-check-balance') {
+                if (
+                  d['client']['data']['command'] === 'received-check-balance'
+                ) {
                   console.log(d['client'].data.message);
                   if (d['client']['data']['checkbalance'] !== undefined) {
                     console.log('topup');
@@ -248,14 +243,20 @@ export class WebsocketDataServiceService implements OnInit {
               //   }
               //   break;
               case 'ping':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
                 }
                 break;
               case 'login':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // console.log('LOGIN OK');
@@ -264,7 +265,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'get-client':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // console.log('get-client OK');
@@ -273,7 +277,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'shake-hands':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client);
                   console.log(this._client.data['message']);
                 } else {
@@ -283,7 +290,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'logout':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // console.log('LOGOUT OK');
@@ -292,7 +302,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'get-profile':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // // console.log(this._client.data['user']);
@@ -303,42 +316,60 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'change-password':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // // alert('change password OK');
                 }
                 break;
               case 'get-transaction':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // // alert('change password OK');
                 }
                 break;
               case 'check-transaction':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // // alert('change password OK');
                 }
                 break;
               case 'check-forgot':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // // alert(this._client.data['message']);
                 }
                 break;
               case 'reset-forgot':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // // alert(this._client.data['message']);
                 }
                 break;
               case 'submit-forgot':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // // alert(this._client.data['message']);
@@ -349,14 +380,20 @@ export class WebsocketDataServiceService implements OnInit {
               case 'get-user-gui':
                 // console.log('here get user gui ');
                 // // console.log(this._client);
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // // alert(this._client.data['user'].gui);
                 }
                 break;
               case 'check-phonenumber':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   // // alert(this._client.data['user'].gui);
@@ -365,7 +402,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'check-username':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   this._newUser.data = this._client.data;
@@ -373,7 +413,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'check-secret':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   this._newUser.data = this._client.data;
@@ -381,7 +424,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'get-secret':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   this._newUser.data = this._client.data;
@@ -389,7 +435,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'register':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   this._newUser.data = this._client.data;
@@ -397,7 +446,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'send-confirm-phone-sms':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   this._currentUserdetail = this._client.data['user'];
@@ -405,7 +457,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'check-confirm-phone-sms':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   this._currentUserdetail = this._client.data['user'];
@@ -413,14 +468,20 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'update-confirm-phone-sms':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
                 }
                 break;
               case 'get-sub-users':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -429,7 +490,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'update-sub-userinfo':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -437,7 +501,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'reset-password-sub-user':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -447,7 +514,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'get-devices':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -457,8 +527,10 @@ export class WebsocketDataServiceService implements OnInit {
 
                 break;
               case 'get-devices-owner':
-
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -466,10 +538,12 @@ export class WebsocketDataServiceService implements OnInit {
                   this.refreshCurrentDevice();
                 }
 
-
                 break;
               case 'get-device-info':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -479,7 +553,10 @@ export class WebsocketDataServiceService implements OnInit {
 
                 break;
               case 'get-production-bills':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -488,7 +565,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'get-production-time':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -497,7 +577,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'get-production-details':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -506,7 +589,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'make-payment':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -516,7 +602,10 @@ export class WebsocketDataServiceService implements OnInit {
 
                 break;
               case 'get-payment-list':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   // console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -525,8 +614,11 @@ export class WebsocketDataServiceService implements OnInit {
                 }
 
                 break;
-                case 'get-realtime-working-status':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+              case 'get-realtime-working-status':
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -535,7 +627,10 @@ export class WebsocketDataServiceService implements OnInit {
                 }
                 break;
               case 'get-latest-working-status':
-                if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+                if (
+                  this._client.data['message'].toLowerCase().indexOf('error') >
+                  -1
+                ) {
                   console.log(this._client.data['message']);
                 } else {
                   console.log(this._client.data['message']);
@@ -564,7 +659,10 @@ export class WebsocketDataServiceService implements OnInit {
       this._client.data.message = '';
     });
     console.log('call constructor');
-    this.timeOut_runner = setTimeout(() => {
+    // this.timeOut_runner = setTimeout(() => {
+    //   this.shakeHands();
+    // }, 1000 * 1);
+    setTimeout(() => {
       this.shakeHands();
     }, 1000 * 1);
   }
@@ -579,7 +677,11 @@ export class WebsocketDataServiceService implements OnInit {
     // this._message.data['command'] = 'ping';
     // console.log(JSON.stringify(this._message));
     // console.log('new message from client to websocket: ', JSON.stringify(this._message.data['command']));
-    if (this._message['gui'] || this._message.data['command'] === 'shake-hands' || this._message.data['command'] === 'ping') {
+    if (
+      this._message['gui'] ||
+      this._message.data['command'] === 'shake-hands' ||
+      this._message.data['command'] === 'ping'
+    ) {
       this.chatService.messages.next(this._message);
     }
   }
@@ -604,7 +706,8 @@ export class WebsocketDataServiceService implements OnInit {
     this._message = JSON.parse(JSON.stringify(this._client));
     this._message.data['user'] = {};
     this._message.data['command'] = 'ping';
-    this._message.data.message = 'ຍັງຈັບສັນຍານ GPS ບໍ່ໄດ້ ເລີຍບໍ່ທັນ ONLINE ແຕ່ໂທໄດ້, ຕັ້ງຄ່າໄດ້ແລ້ວ';
+    this._message.data.message =
+      'ຍັງຈັບສັນຍານ GPS ບໍ່ໄດ້ ເລີຍບໍ່ທັນ ONLINE ແຕ່ໂທໄດ້, ຕັ້ງຄ່າໄດ້ແລ້ວ';
     this._message.data.transaction = this.createTransaction();
     // alert('PING');
     this.sendMsg();
@@ -753,7 +856,9 @@ export class WebsocketDataServiceService implements OnInit {
       this._message.data = this._newUser.data;
       this._message.data.transaction = this.createTransaction();
       this.sendMsg();
-    } else { return ('User is undefined'); }
+    } else {
+      return 'User is undefined';
+    }
   }
 
   checkPhoneNumber(newuser) {
@@ -767,7 +872,9 @@ export class WebsocketDataServiceService implements OnInit {
       this._message.data = this._newUser.data;
       this._message.data.transaction = this.createTransaction();
       this.sendMsg();
-    } else { return ('User is undefined'); }
+    } else {
+      return 'User is undefined';
+    }
   }
 
   getSecret(newuser) {
@@ -777,10 +884,10 @@ export class WebsocketDataServiceService implements OnInit {
       const LTC = this._newUser.data.user.phonenumber.indexOf('205');
       const UNI = this._newUser.data.user.phonenumber.indexOf('209');
       if (phonesize < 10 || phonesize > 10) {
-        return ('phone must start with 205 or 209 and 10 digit in total');
+        return 'phone must start with 205 or 209 and 10 digit in total';
       }
       if (LTC < 0 && UNI < 0) {
-        return ('we support only LAOTEL and UNITEL number only');
+        return 'we support only LAOTEL and UNITEL number only';
       }
       this._newUser.data['command'] = 'get-secret';
       // this._client.data = this._newUser.data;
@@ -789,7 +896,9 @@ export class WebsocketDataServiceService implements OnInit {
       this._message.data = this._newUser.data;
       this._message.data.transaction = this.createTransaction();
       this.sendMsg();
-    } else { return ('User is undefined'); }
+    } else {
+      return 'User is undefined';
+    }
   }
   checkSecret(newuser) {
     this._newUser = newuser;
@@ -800,7 +909,9 @@ export class WebsocketDataServiceService implements OnInit {
       this._message.data = this._newUser.data;
       this._message.data.transaction = this.createTransaction();
       this.sendMsg();
-    } else { return ('User is undefined'); }
+    } else {
+      return 'User is undefined';
+    }
   }
 
   send_confirm_phone_sms(user) {
@@ -809,10 +920,10 @@ export class WebsocketDataServiceService implements OnInit {
     const LTC = user.phonenumber.indexOf('205');
     const UNI = user.phonenumber.indexOf('209');
     if (phonesize < 10 || phonesize > 10) {
-      return ('phone must start with 205 or 209 and 10 digit in total');
+      return 'phone must start with 205 or 209 and 10 digit in total';
     }
     if (LTC < 0 && UNI < 0) {
-      return ('we support only LAOTEL and UNITEL number only');
+      return 'we support only LAOTEL and UNITEL number only';
     }
     this._message = JSON.parse(JSON.stringify(this._client));
     this._message.data['command'] = 'send-confirm-phone-sms';
@@ -861,10 +972,10 @@ export class WebsocketDataServiceService implements OnInit {
     const LTC = phone.indexOf('205');
     const UNI = phone.indexOf('209');
     if (phonesize < 10 || phonesize > 10) {
-      return ('phone must start with 205 or 209 and 10 digit in total');
+      return 'phone must start with 205 or 209 and 10 digit in total';
     }
     if (LTC < 0 && UNI < 0) {
-      return ('we support only LAOTEL and UNITEL number only');
+      return 'we support only LAOTEL and UNITEL number only';
     }
     cu.data['command'] = 'submit-forgot';
     this._message.data = cu.data;
@@ -902,8 +1013,8 @@ export class WebsocketDataServiceService implements OnInit {
     }
     const blob = new Blob([array], { type: 'image/jpeg' });
     return this.sanitizer.bypassSecurityTrustUrl(
-      urlCreator.createObjectURL(blob));
-
+      urlCreator.createObjectURL(blob)
+    );
   }
   createSafeURL(url) {
     const urlCreator = window.URL;
@@ -913,8 +1024,7 @@ export class WebsocketDataServiceService implements OnInit {
   file2imageurl(f: File) {
     const urlCreator = window.URL;
     // const blob = new Blob([ab]);
-    return this.sanitizer.bypassSecurityTrustUrl(
-      urlCreator.createObjectURL(f));
+    return this.sanitizer.bypassSecurityTrustUrl(urlCreator.createObjectURL(f));
   }
   arraybuffer2imageurl(ab: ArrayBuffer, type: string) {
     const urlCreator = window.URL;
@@ -924,7 +1034,8 @@ export class WebsocketDataServiceService implements OnInit {
     });
     console.log(file);
     return this.sanitizer.bypassSecurityTrustUrl(
-      urlCreator.createObjectURL(file));
+      urlCreator.createObjectURL(file)
+    );
   }
   upload(data) {
     this._message = JSON.parse(JSON.stringify(this._client));
@@ -941,7 +1052,6 @@ export class WebsocketDataServiceService implements OnInit {
     this._message.data.user = data;
     this.sendMsg();
   }
-
 
   getSubUsers() {
     this._message = JSON.parse(JSON.stringify(this._client));
@@ -1080,7 +1190,6 @@ export class WebsocketDataServiceService implements OnInit {
     }
     d.day = new Date().getDate();
     d.dates = this.daysInMonth(d.month, d.year);
-
   }
   daysInMonth(month, year) {
     return new Date(year, month, 0).getDate();
@@ -1117,13 +1226,16 @@ export class WebsocketDataServiceService implements OnInit {
               console.log('GET DATA DATE ' + e);
               this._message.data.day = e;
               this.sendMsg();
-            }, 1000 * (i++ + 1)));
+            }, 1000 * (i++ + 1))
+          );
         } else if (new Date().getDate() >= e) {
-          this._timerOutArray.push(setTimeout(() => {
-            console.log('GET DATA DATE ' + e);
-            this._message.data.day = e;
-            this.sendMsg();
-          }, 1000 * (i++ + 1)));
+          this._timerOutArray.push(
+            setTimeout(() => {
+              console.log('GET DATA DATE ' + e);
+              this._message.data.day = e;
+              this.sendMsg();
+            }, 1000 * (i++ + 1))
+          );
         } else {
           console.log('ignore');
         }
@@ -1158,13 +1270,16 @@ export class WebsocketDataServiceService implements OnInit {
               console.log('GET DATA DATE ' + e);
               this._message.data.day = e;
               this.sendMsg();
-            }, 1000 * (i++ + 1)));
+            }, 1000 * (i++ + 1))
+          );
         } else if (new Date().getDate() >= e) {
-          this._timerOutArray.push(setTimeout(() => {
-            console.log('GET DATA DATE ' + e);
-            this._message.data.day = e;
-            this.sendMsg();
-          }, 1000 * (i++ + 1)));
+          this._timerOutArray.push(
+            setTimeout(() => {
+              console.log('GET DATA DATE ' + e);
+              this._message.data.day = e;
+              this.sendMsg();
+            }, 1000 * (i++ + 1))
+          );
         } else {
           console.log('ignore');
         }
@@ -1186,5 +1301,4 @@ export class WebsocketDataServiceService implements OnInit {
     this._message.data.command = 'get-latest-working-status';
     this.sendMsg();
   }
-
 }
