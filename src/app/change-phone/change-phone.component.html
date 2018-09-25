@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6 offset-xl-3 col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12 border-register" style="width:100%;">
+            <h3 class="text-center display-7">Pay Cheap <i class="fas fa-leaf" id="register-color-icon"></i></h3>
+            <h5 class="text-center display-5 langlao">ປ່ຽນເບີໂທລະສັບ</h5>
+            <form action="" class="mt-3">
+                <label class="ml-4 langlao smoke-font-color" for="phonenumber">ເບີໂທປັດຈຸບັນ*</label>
+                <input name="phonenumber" (value)="_newUser.data['user'].phonenumber===undefined? '' : _newUser.data['user'].phonenumber" (input)="_newUser.data['user'].phonenumber=$event.target.value" maxlength="10" placeholder="phonenumber: 205 or 209" class="form-control input-md"
+                    required>
+                <label class="ml-4 mt-3 langlao smoke-font-color" for="newphonenumber">ເບີໂທໃໝ່*</label>
+                <input name="newphonenumber" (value)="_newUser.data['user'].newphonenumber===undefined? '' : _newUser.data['user'].newphonenumber" (input)="_newUser.data['user'].newphonenumber=$event.target.value" placeholder="phonenumber: 205 or 209" class="form-control input-md"
+                    required>
+                <label class="ml-4 mt-3 langlao smoke-font-color" for="secret">ປ້ອນລະຫັດທີ່ທ່ານໃດ້ຮັບ*</label>
+                <input name="secret" [value]="_newUser.data['secret']===undefined? '' : _newUser.data['secret']" (input)="_newUser.data['secret']=$event.target.value" (keyup)="checkSMSConfirm($event)" maxlength="6" placeholder="secret" class="form-control input-md" required>
+                <label class="mt-3 langlao smoke-font-color" for="secret"></label>
+                <button (click)="getSMSConfirm()" name="btnGetSecret" class="btn btn-outline-secondary mt-3 langlao">ຂໍລະຫັດ</button>
+                <label for="submit"></label>
+                <button (click)='changePhoneNumber()' name="submit" class="btn btn-block main-bg-color mt-3">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- the tag below make for alert  -->
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="text-center modal-title langlao">ປ່ຽນເບີໂທສຳເລັດ</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <p class="text-center langlao">ທ່ານໄດ້ປ່ຽນເບີໂທສຳເລັດແລ້ວ ກະລຸນາລ໋ອກອິນອີກຄັ້ງ&hellip;</p>
+        <p class="text-center langlao">ຂໍຂອບໃຈ&hellip;</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light langlao" (click)="c('Close click')">ຕົກລົງ</button>
+    </div>
+</ng-template>
+
+<!-- the tag below make for show_sms  -->
+
+<ng-template #show_sms let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="text-center modal-title langlao"></h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <p class="text-center langlao">ກະລຸນາປ້ອນເບີໂທລະສັບໃຫ້ຄົບຖ້ວນ</p>
+        <p class="text-center langlao">ຕົວຢ່າງ: 20xxxxxxxx</p>
+        <p class="text-center langlao">ຂໍຂອບໃຈ&hellip;</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light langlao" (click)="c('Close click')">ຕົກລົງ</button>
+    </div>
+</ng-template>

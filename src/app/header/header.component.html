@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-header fixed-top">
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="col-2">
+    <a [routerLink]="['/all-menu']"><img class="mr-auto" src="../../assets/logo/Paycheaplogo-header.png" alt="" style="height:66px;"></a>
+  </div>
+  <div class="collapse navbar-collapse" id="collapse_target">
+    <div class="col-8">
+      <div class="dropdown">
+        <a class="nav-link btn-font-color btn-custom-all text-center" [routerLink]="['/all-menu']">
+          <i class="fab fa-accusoft"></i> Home
+        </a>
+      </div>
+      <!-- <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" [routerLink]="['/hometopup']">Hometopup</a>
+          <a class="dropdown-item" [routerLink]="['/user-info']">User-info</a>
+          <a class="dropdown-item" [routerLink]="['/forgotpassword']">forgotpassword</a>
+          <a class="dropdown-item" [routerLink]="['/changepassword']">changepassword</a>
+          <a class="dropdown-item" [routerLink]="['/ubalance']">ubalance</a>
+          <a class="dropdown-item" [routerLink]="['/urecharge']">urecharge</a>
+          <a class="dropdown-item" [routerLink]="['/u-recharge-request']">u-recharge-request</a>
+          <a class="dropdown-item" [routerLink]="['/transfer-history']">transfer-history</a>
+          <a class="dropdown-item" [routerLink]="['/admin-history']">admin-history</a>
+          <a class="dropdown-item" [routerLink]="['/items']">items</a>
+          <a class="dropdown-item" [routerLink]="['/item-shop']">item-shop</a>
+          <a class="dropdown-item" [routerLink]="['/hello-client']">hello-client</a>
+          <a class="dropdown-item" [routerLink]="['/logout']">logout</a>
+          <a class="dropdown-item" [routerLink]="['/user-info']">user-info</a>
+          <a class="dropdown-item" [routerLink]="['/all-menu']">all-menu</a>
+          <a class="dropdown-item" [routerLink]="['/welcome']">welcome</a>
+          <a class="dropdown-item" [routerLink]="['/change-phone']">change-phone</a>
+          <a class="dropdown-item" [routerLink]="['/register-success-page']">register-success-page</a>
+          <a class="dropdown-item" [routerLink]="['/modal']">modal</a>
+          <a class="dropdown-item" [routerLink]="['/test']">test</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div> -->
+    </div>
+    <div class="col-2">
+      <div class="login">
+        <ul class="ml-auto navbar-nav head-right-fonts">
+          <li class="dropdown navbar-item border-right-0" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <a class="nav-link text-center change-head-right-color"><i class="fas fa-users"></i>
+              <br>Sign In</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button" id="head-drop-font" [routerLink]="['/login']"><i class="fas fa-user"></i>
+                Sign In</button>
+              <button class="dropdown-item" type="button" id="head-drop-font" [routerLink]="['/register']"><i class="far fa-registered"></i>
+                Register</button>
+              <hr>
+              <button class="dropdown-item" type="button" id="head-drop-font" (click)="logout()"><i class="fas fa-level-down-alt"></i>
+                Logout</button>
+              <hr>
+              <button class="dropdown-item" type="button" id="head-drop-font"><i class="far fa-address-book"></i> For
+                Admin</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="margin-bottom"></div>

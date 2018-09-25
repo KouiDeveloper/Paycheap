@@ -1,0 +1,26 @@
+.font-size-items {
+    font-size: 13pt;
+}
+
+.mt-10 {
+    margin-top: 40px;
+}
+
+.cursor {
+    cursor: pointer;
+    height: 180px;
+    border: 5px solid;
+    border-color: rgb(212, 198, 198);
+    border-radius: 30px 0px 50px 0px;
+}
+
+.font-size-items:hover {
+    transition: 0.5s;
+    font-size: 12pt;
+    color: black !important;
+}
+
+.nav-link:hover {
+    transition: 0.5s;
+    color: black !important;
+}
