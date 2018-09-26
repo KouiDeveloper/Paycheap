@@ -38,7 +38,11 @@
 }
 
 .scrolling-wrapper::-webkit-scrollbar,
-.scrolling-wrapper-flexbox::-webkit-scrollbar {}
+.scrolling-wrapper-flexbox::-webkit-scrollbar {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
 
 .color-head-transfer {
     font-size: 12pt;

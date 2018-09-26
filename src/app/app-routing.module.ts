@@ -24,11 +24,13 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ChangePhoneComponent } from './change-phone/change-phone.component';
 import { ResiterSuccessPageComponent } from './register-success-page/resiter-success-page.component';
 import { ModalComponent } from './modal/modal.component';
-
+import { GTransactionComponent } from './X-moneyGit/g-transaction/g-transaction.component';
+import { GAllMenuForGitComponent } from './X-moneyGit/g-all-menu-for-git/g-all-menu-for-git.component';
+import { GBuyGitComponent } from './X-moneyGit/g-buy-git/g-buy-git.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexComponent },
-  { path: '', redirectTo: '/index', pathMatch: 'full'}, 
+  { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent },
@@ -45,26 +47,20 @@ const routes: Routes = [
   { path: 'hello-client', component: HelloClientComponent },
   { path: 'test', component: TestComponent },
   { path: 'logout', component: AllMenuComponent },
-  { path: 'user-info', component: UserInfoComponent }, 
+  { path: 'user-info', component: UserInfoComponent },
   { path: 'all-menu', component: AllMenuComponent },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'change-phone', component: ChangePhoneComponent },
   { path: 'register-success-page', component: ResiterSuccessPageComponent },
-  { path: 'modal', component: ModalComponent }
-
-  
-  
-  
-]
+  { path: 'modal', component: ModalComponent },
+  { path: 'g-transaction', component: GTransactionComponent },
+  { path: 'g-all-menu-forgit', component: GAllMenuForGitComponent },
+  { path: 'g-buy-git',  component: GBuyGitComponent}
+];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
-  ],
+  imports: [CommonModule, RouterModule.forRoot(routes)],
   declarations: [],
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

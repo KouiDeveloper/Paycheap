@@ -34,7 +34,9 @@
 }
 
 .scrolling-wrapper::-webkit-scrollbar,
-.scrolling-wrapper-flexbox::-webkit-scrollbar {color: blueviolet;}
+.scrolling-wrapper-flexbox::-webkit-scrollbar {
+    -webkit-overflow-scrolling: touch;
+}
 
 .color-head-transfer {
     font-size: 12pt;

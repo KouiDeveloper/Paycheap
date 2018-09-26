@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';  // <<<< import it here
+import { FormsModule } from '@angular/forms'; // <<<< import it here
 import { WebsocketDataServiceService } from '../websocket-data-service.service';
 import { ChatService, Message } from '../chat.service';
 import { WebsocketService } from '../websocket.service';
@@ -11,7 +11,7 @@ import { enable, destroy } from 'splash-screen';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
- private _message: Message;
+  private _message: Message;
   private _newUser: any = {};
   private _userDetailsStr = '';
   private _server_event: any = [];
@@ -31,42 +31,56 @@ export class HeaderComponent implements OnInit {
   private _trans: any = [];
 
   /// WEBSOCKET LAUNCHING
-  constructor(private websocketDataServiceService: WebsocketDataServiceService, private router: Router) {
+  constructor(
+    private websocketDataServiceService: WebsocketDataServiceService,
+    private router: Router
+  ) {
     this.loadClient();
-    if(!this._client.logintoken){
+    if (!this._client.logintoken) {
       router.navigate(['/welcome']);
     }
-    this._subs.push(this.websocketDataServiceService.clientSource.subscribe(client => {
-      this._client = client;
-      if (this._client.data['user'] !== undefined) {
-        console.log(this._client);
-        this.readClient(client);
-      }
-    }));
-    this._subs.push(this.websocketDataServiceService.newUserSource.subscribe(client => {
-      this._newUser = client;
-      if (this._newUser !== undefined) {
-        alert('new user update ' + this._newUser.data.user['message']);
-        this.readNewUser(client);
-      }
-    }));
-    this._subs.push(this.websocketDataServiceService.eventSource.subscribe(events => {
-      this._server_event.push(events);
-      this.readServerEvent(events);
-    }));
-    this._subs.push(this.websocketDataServiceService.currentUserSource.retry().subscribe(user => {
-      this._currentUserdetail = user;
-      this._userDetailsStr = JSON.stringify(this._currentUserdetail);
-      this.readCurrentUserDetail(user);
-    }));
+    this._subs.push(
+      this.websocketDataServiceService.clientSource.subscribe(client => {
+        this._client = client;
+        if (this._client.data['user'] !== undefined) {
+          console.log(this._client);
+          this.readClient(client);
+        }
+      })
+    );
+    this._subs.push(
+      this.websocketDataServiceService.newUserSource.subscribe(client => {
+        this._newUser = client;
+        if (this._newUser !== undefined) {
+          alert('new user update ' + this._newUser.data.user['message']);
+          this.readNewUser(client);
+        }
+      })
+    );
+    this._subs.push(
+      this.websocketDataServiceService.eventSource.subscribe(events => {
+        this._server_event.push(events);
+        this.readServerEvent(events);
+      })
+    );
+    this._subs.push(
+      this.websocketDataServiceService.currentUserSource
+        .retry()
+        .subscribe(user => {
+          this._currentUserdetail = user;
+          this._userDetailsStr = JSON.stringify(this._currentUserdetail);
+          this.readCurrentUserDetail(user);
+        })
+    );
 
-    this._subs.push(this.websocketDataServiceService.otherSource.subscribe(msg => {
-      this._otherMessage = msg;
-      this.readOtherMessage(msg);
-    }));
-
+    this._subs.push(
+      this.websocketDataServiceService.otherSource.subscribe(msg => {
+        this._otherMessage = msg;
+        this.readOtherMessage(msg);
+      })
+    );
   }
-//// END WEBSOCKET LAUNCHING
+  //// END WEBSOCKET LAUNCHING
 
   /// OTHER FUNCTIONS
   private clearJSONValue(u) {
@@ -91,7 +105,6 @@ export class HeaderComponent implements OnInit {
   }
   ngOnDestroy() {
     console.log('STOP SERVICE');
-    
   }
   saveClient() {
     //// this.websocketDataServiceService.refreshClient();
@@ -105,14 +118,14 @@ export class HeaderComponent implements OnInit {
     if (!this._client.gui || this._client.gui === undefined) {
       this._client = this.websocketDataServiceService.getClient();
       // this.websocketDataServiceService.refreshClient();
-     this.shakeHands();
+      this.shakeHands();
       console.log('client loaded');
     } else {
       this.saveClient();
     }
     //destroy();
   }
-/// INIT FUNCTIONS
+  /// INIT FUNCTIONS
 
   /// *************RECEIVING  */
   readClient(c): any {
@@ -122,7 +135,9 @@ export class HeaderComponent implements OnInit {
         this._client = c;
         switch (this._client.data['command']) {
           case 'heart-beat':
-            if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+            if (
+              this._client.data['message'].toLowerCase().indexOf('error') > -1
+            ) {
               console.log(this._client.data['message']);
             } else {
               // this._client.data['user'] = u;
@@ -134,7 +149,9 @@ export class HeaderComponent implements OnInit {
             // // alert(this._client.data['message']);
             break;
           case 'shake-hands':
-            if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+            if (
+              this._client.data['message'].toLowerCase().indexOf('error') > -1
+            ) {
               // // console.log(this._client);
               console.log(this._client.data['message']);
             } else {
@@ -143,7 +160,9 @@ export class HeaderComponent implements OnInit {
             }
             break;
           case 'logout':
-            if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+            if (
+              this._client.data['message'].toLowerCase().indexOf('error') > -1
+            ) {
               console.log(this._client.data['message']);
             } else {
               // destroy();
@@ -153,14 +172,13 @@ export class HeaderComponent implements OnInit {
             }
             break;
         }
-       
       } else {
         // alert('data empty');
         console.log('data is empty');
       }
     } catch (error) {
       // alert(error);
-    }    
+    }
   }
   readNewUser(n): any {
     // this._newUser;
@@ -191,7 +209,7 @@ export class HeaderComponent implements OnInit {
     const msg = {
       title: '',
       data: {},
-      other: {}, // ...
+      other: {} // ...
     };
     msg.data['transaction'] = this.createTransaction(); // NEED TO BE DONE BEOFORE SEND MESSAGE
     this.websocketDataServiceService.setOtherMessage(msg);
@@ -216,13 +234,15 @@ export class HeaderComponent implements OnInit {
     // this.saveClient();
     // destroy();
     //this.router.navigate(['/welcome']);
-   // alert(this.websocketDataServiceService.logout);
+    // alert(this.websocketDataServiceService.logout);
   }
 
   getSMSConfirm() {
     if (this._client.logintoken) {
       this._currentUserdetail.data.transaction = this.createTransaction(); // NEED TO BE DONE BEOFORE SEND MESSAGE
-      this.websocketDataServiceService.send_confirm_phone_sms(this._currentUserdetail);
+      this.websocketDataServiceService.send_confirm_phone_sms(
+        this._currentUserdetail
+      );
     } else {
       alert('login first');
     }
@@ -232,20 +252,23 @@ export class HeaderComponent implements OnInit {
       if (this._newUser.data['secret'] !== undefined) {
         if (this._newUser.data['secret'].length === 6) {
           this._newUser.data.transaction = this.createTransaction(); // NEED TO BE DONE BEOFORE SEND MESSAGE
-          this.websocketDataServiceService.check_confirm_phone_sms(this._newUser);
+          this.websocketDataServiceService.check_confirm_phone_sms(
+            this._newUser
+          );
         }
       }
     } else {
       alert('login first');
     }
-
   }
   changePhoneNumber() {
     if (this._client.logintoken) {
       if (this._newUser.data['secret'] !== undefined) {
         if (this._newUser.data['secret'].length === 6) {
           this._newUser.data.transaction = this.createTransaction(); // NEED TO BE DONE BEOFORE SEND MESSAGE
-          this.websocketDataServiceService.update_confirm_phone(this._newUser.data);
+          this.websocketDataServiceService.update_confirm_phone(
+            this._newUser.data
+          );
         }
       }
     } else {
@@ -255,16 +278,24 @@ export class HeaderComponent implements OnInit {
   goTo(com) {
     console.log(JSON.stringify(this._client));
     this.websocketDataServiceService.setClient(this._client);
-    this.router.navigate([com]).then(res => {
-    }).catch(err => {
-      // alert(err);
-    });
+    this.router
+      .navigate([com])
+      .then(res => {})
+      .catch(err => {
+        // alert(err);
+      });
   }
 
   createTransaction() {
     let x;
-    this._trans.push(x = this.websocketDataServiceService.createTransaction());
+    this._trans.push(
+      (x = this.websocketDataServiceService.createTransaction())
+    );
     return x;
+  }
+
+  gAllMenuGit() {
+    this.router.navigate(['/g-all-menu-forgit']);
   }
   /////////////// END SENDING
 }

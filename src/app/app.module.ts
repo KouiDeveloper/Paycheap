@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import {PouchDBService} from './pouchdb.service';
+import { PouchDBService } from './pouchdb.service';
 import { LoadingModule } from 'ngx-loading';
 
 import { AppComponent } from './app.component';
@@ -36,21 +36,22 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ChangePhoneComponent } from './change-phone/change-phone.component';
 import { ResiterSuccessPageComponent } from './register-success-page/resiter-success-page.component';
 import { ModalComponent } from './modal/modal.component';
-
-
+import { GTransactionComponent } from './X-moneyGit/g-transaction/g-transaction.component';
+import { GAllMenuForGitComponent } from './X-moneyGit/g-all-menu-for-git/g-all-menu-for-git.component';
+import { GBuyGitComponent } from './X-moneyGit/g-buy-git/g-buy-git.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,    
+    HeaderComponent,
     ToggleComponent,
-    LoginComponent,    
-    FooterComponent,   
+    LoginComponent,
+    FooterComponent,
     IndexComponent,
-    RegisterComponent,    
+    RegisterComponent,
     AdminComponent,
     ForgotpasswordComponent,
-    ChangepasswordComponent,   
+    ChangepasswordComponent,
     HometopupComponent,
     UbalanceComponent,
     UrechargeRequestCashierComponent,
@@ -68,7 +69,10 @@ import { ModalComponent } from './modal/modal.component';
     WelcomeComponent,
     ChangePhoneComponent,
     ResiterSuccessPageComponent,
-    ModalComponent
+    ModalComponent,
+    GTransactionComponent,
+    GAllMenuForGitComponent,
+    GBuyGitComponent
   ],
   imports: [
     BrowserModule,
@@ -80,4 +84,4 @@ import { ModalComponent } from './modal/modal.component';
   providers: [PouchDBService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
