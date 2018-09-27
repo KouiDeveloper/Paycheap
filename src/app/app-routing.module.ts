@@ -27,10 +27,15 @@ import { ModalComponent } from './modal/modal.component';
 import { GTransactionComponent } from './X-moneyGit/g-transaction/g-transaction.component';
 import { GAllMenuForGitComponent } from './X-moneyGit/g-all-menu-for-git/g-all-menu-for-git.component';
 import { GBuyGitComponent } from './X-moneyGit/g-buy-git/g-buy-git.component';
+import { GSaleGitComponent } from './X-moneyGit/g-sale-git/g-sale-git.component';
+import { TestModalComponent } from './X-moneyGit/test-modal/test-modal.component';
+import { GTransferMoneyComponent } from './X-moneyGit/g-transfer-money/g-transfer-money.component';
+import { GReserveComponent } from './X-moneyGit/g-reserve/g-reserve.component';
+import { GProfileComponent } from './X-moneyGit/g-profile/g-profile.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexComponent },
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent },
@@ -55,7 +60,12 @@ const routes: Routes = [
   { path: 'modal', component: ModalComponent },
   { path: 'g-transaction', component: GTransactionComponent },
   { path: 'g-all-menu-forgit', component: GAllMenuForGitComponent },
-  { path: 'g-buy-git',  component: GBuyGitComponent}
+  { path: 'g-buy-git', component: GBuyGitComponent },
+  { path: 'g-test', component: TestModalComponent },
+  { path: 'g-sale-git', component: GSaleGitComponent },
+  { path: 'g-transfer-money', component: GTransferMoneyComponent },
+  { path: 'g-reserve', component: GReserveComponent },
+  { path: 'g-profile', component: GProfileComponent }
 ];
 
 @NgModule({
