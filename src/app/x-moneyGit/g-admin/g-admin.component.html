@@ -9,7 +9,7 @@
   <nav class="justify-content-center d-flex langlao">
     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
-        aria-selected="true">Generate Git and Export Git
+        aria-selected="true">Generate Git and Export
       </a>
       <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
         aria-selected="false">Review Git
@@ -206,7 +206,7 @@
 
 
 <!-- ***************************************** Momal **************************** -->
-<ng-template #Alert_sendToBuyGit let-c="close" let-d="dismiss">
+<ng-template #Alert_finish_generate_qr let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h5 class="modal-title langlao"><b class="text-center"></b></h5>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -215,16 +215,16 @@
   </div>
   <div class="modal-body">
 
-    <p class="text-center langlao text-finish-buy-git">ສຳເລັດການຊື້ເງິນGit</p>
+    <p class="text-center langlao text-finish-buy-git">ສຳເລັດການ Generate</p>
     <p class="text-center langlao">ຂອບໃຈທີ່ໃຊ້ບໍລິການ</p>
     <p class="text-center"><i class="fas fa-praying-hands" id="thanks-icon"></i></p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-light langlao" (click)="c('Close click')" [routerLink]="[ '/g-transaction']">ຕົກລົງ</button>
+    <button type="button" class="btn btn-light langlao" (click)="c('Close click')">ຕົກລົງ</button>
   </div>
 </ng-template>
 
-<ng-template #Alert_ScanQRCodeToBuyGit_Price let-c="close" let-d="dismiss">
+<ng-template #Alert_MyQRCode let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h5 class="modal-title langlao"><b class="text-center"></b></h5>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -232,27 +232,12 @@
     </button>
   </div>
   <div class="modal-body">
-    <p class="text-center langlao text-finish-buy-git"><u>ຂໍ້ມູນສ່ວນຕົວ</u></p>
-    <div class="form-group col-md-12">
-      <i class="fas fa-id-card-alt"></i>
-      <label for="userName">Username</label>
-      <input type="text" class="form-control" id="userName" value="Mr: ABC">
-    </div>
-    <div class="form-group col-md-12">
-      <i class="fas fa-id-card-alt"></i>
-      <label for="idUser">ID_USER</label>
-      <input type="number" class="form-control" id="idUser" value="99999999">
-    </div>
-    <div class="form-group col-md-12">
-      <i class="fas fa-mobile-alt"></i>
-      <label for="phoneUser">PHONE Number</label>
-      <input type="number" class="form-control" id="phonUser" value="02055555555">
-    </div>
-    <p class="text-center langlao text-finish-buy-git mt-3 mb-0"><u>ກະລຸນາປ້ອນຈຳນວນເງິນທີ່ທານຕ້ອງການຊື້</u></p>
-    <label for="priceTobuy">Amount</label>
-    <input class="form-control" type="number">
+    <h6 class="text-center mb-0">My QR CODE</h6>
+    <p class="text-center mt-0">
+      <img src="../../../assets/images/MyQRCode.jpg" alt="">
+    </p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-light langlao" (click)="sendToBuyGit(Alert_sendToBuyGit); d('Cross click')">ຕົກລົງ</button>
+    <button type="button" class="btn btn-light langlao" (click)="d('Cross click')">ຕົກລົງ</button>
   </div>
 </ng-template>

@@ -1,5 +1,3 @@
-import { GAdminOfflineComponent } from './X-moneyGit/g-admin-offline/g-admin-offline.component';
-import { GAdminOnlineComponent } from './X-moneyGit/g-admin-online/g-admin-online.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -71,9 +69,7 @@ const routes: Routes = [
   { path: 'g-reserve', component: GReserveComponent },
   { path: 'g-profile', component: GProfileComponent },
   { path: 'g-voucher', component: GVoucherComponent },
-  { path: 'g-admin', component: GAdminComponent },
-  { path: 'g-admin-online', component: GAdminOnlineComponent },
-  { path: 'g-admin-offline', component: GAdminOfflineComponent }
+  { path: 'g-admin', component: GAdminComponent }
 ];
 
 @NgModule({
