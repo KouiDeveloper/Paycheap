@@ -1,0 +1,137 @@
+<div class="container mt-100">
+  <ngx-loading [show]="loading" [config]="{ 
+        backdropBorderRadius: '14px',fullScreenBackdrop:true,
+        backdropBackgroundColour: 'rgb(240, 77, 213, 0.377)',
+        primaryColour: '#ffffff', secondaryColour: '#ffffff', tertiaryColour: '#ffffff' 
+    }">
+    <!-- put something that you want to show here -->
+  </ngx-loading>
+  <nav class="justify-content-center d-flex langlao">
+    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active bg-primary cursor-edit" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+        role="tab" aria-controls="nav-home" aria-selected="true">ລະບົບການຈອງ Git
+      </a>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col-md-8 offset-md-2 col-sm-12">
+      <div class="bg-scan-QR-code">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <i class="fas fa-id-card-alt"></i>
+              <label for="idUser">ID_USER</label>
+              <input type="number" class="form-control" id="idUser">
+            </div>
+            <div class="form-group col-md-6">
+              <i class="fas fa-mobile-alt"></i>
+              <label for="phoneUser">PHONE Number</label>
+              <input type="number" class="form-control" id="phonUser">
+            </div>
+          </div>
+          <div class="form-group">
+            <i class="fas fa-dollar-sign"></i>
+            <label for="amount">Amount</label>
+            <input type="number" class="form-control" id="amount">
+          </div>
+          <p class="text-center langlao font-11 mb-0">ເລືອກວັນທີ ທີ່ຕ້ອງການຮັບເງິນ</p>
+          <div class="select-day-month-years justify-content-center d-flex">
+            <!-- <button class="btn btn-primary d-flex mx-auto bg-select-days">Select-Days</button> -->
+            <form class="form-inline">
+              <div class="form-group">
+                <div class="input-group">
+                  <input class="form-control btn btn-secondary-outline" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model"
+                    ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (ngModelChange)="selectTime()">
+                  <div class="input-group-append">
+                    <button class="btn btn-secondary" (click)="d.toggle()" type="button">
+                      <i class="far fa-calendar-alt color-index-icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <button type="submit" class="btn btn-primary ml-auto d-block col-lg-2 col-md-3 col-6 p-2" (click)="sendToBuyGit(Alert_sendToReserveGit)">Sumbit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h4 class="text-center langlao"><u>ລາຍການເຄື່ອນໄຫວການຈອງເງິນ GIT</u></h4>
+  <div class="row scrollpy">
+    <div class="table-responsive ">
+      <table class="table table-bordered langlao ">
+        <thead>
+          <tr class="text-center">
+            <th scope="col" class="min-width-sharp">ລ/ດ</th>
+            <th scope="col" class="min-width-reserve-money">ຈຳນວນເງິນຈອງ</th>
+            <th scope="col" class="min-width-reserve-money">ວັນທີຈອງ-ສິ້ນສຸດ</th>
+            <th scope="col" class="min-width-reserve-money">ສະຖານະ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="list-reserve-content">
+            <td>1</td>
+            <td>500.000 kip</td>
+            <td>30.5.2018 - 30.7.2018</td>
+            <td class="bg-pending">
+              <i>ລໍຖ້າດຳເນີນການ</i> <br>
+              <i>60 days left</i> <br>
+              <i>1440 H : 30'</i>
+            </td>
+          </tr>
+
+          <tr class="list-reserve-content">
+            <td>2</td>
+            <td>800.000 kip</td>
+            <td>12.8.2018 - 11.9.2018</td>
+            <td class="bg-finish">ສຳເລັດ</td>
+          </tr>
+          <tr class="list-reserve-content">
+            <td>3</td>
+            <td>400.000 kip</td>
+            <td>16.9.2018 - 11.10.2018</td>
+            <td class="bg-finish">ສຳເລັດ</td>
+          </tr>
+
+          <tr class="list-reserve-content">
+            <td>4</td>
+            <td>200.000 kip</td>
+            <td>23.10.2018 - 11.11.2018</td>
+            <td class="bg-finish">ສຳເລັດ</td>
+          </tr>
+
+
+          <tr class="list-reserve-content">
+            <td>5</td>
+            <td>900.000 kip</td>
+            <td>29.11.2018 - 12.12.2018</td>
+            <td class="bg-outDate">ໝົດອາຍຸ </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ***************************************** Momal **************************** -->
+<ng-template #Alert_sendToReserveGit let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title langlao"><b class="text-center"></b></h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p class="text-center langlao text-finish-buy-git">ສຳເລັດການຈອງເງິນGit</p>
+    <p class="text-center langlao">ຂອບໃຈທີ່ໃຊ້ບໍລິການ</p>
+    <p class="text-center"><i class="fas fa-praying-hands" id="thanks-icon"></i></p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light langlao" (click)="c('Close click')" [routerLink]="[ '/g-transaction']">ຕົກລົງ</button>
+  </div>
+</ng-template>

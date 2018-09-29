@@ -1,0 +1,62 @@
+.mt-100{
+    margin-top:100px !important; 
+}
+.nav-item{
+    text-align: center;
+    width: 200px;
+    font-size: 10pt;
+}
+.form-group{
+    font-size: 9pt !important;
+}
+.btn-primary{
+    font-size: 9pt;
+    margin-top: 12px;
+}
+.bg-scan-QR-code{
+    background-color: rgb(245, 236, 236) !important;
+    padding: 15px;
+}
+.text-finish-buy-git{
+    font-size: 16pt;
+    font-weight: bold;
+}
+#thanks-icon{
+    font-size: 50pt;
+    color:green;
+    text-align: center;
+}
+
+
+
+/* *********************** */
+
+
+.font-size-items {
+    font-size: 12pt;
+}
+
+.mt-10 {
+    margin-top: 40px;
+}
+
+.cursor {
+    cursor: pointer;
+    height: 180px;
+    border: 4px solid;
+    border-color: rgb(212, 198, 198);
+    border-radius: 30px 0px 50px 0px;
+}
+
+.font-size-items:hover {
+    transition: 0.6s;
+    font-size: 12pt;
+    color: black !important;
+}
+
+.nav-link:hover {
+    transition: 0.6s;
+    /* font-size: 13pt !important; */
+    color: black !important;
+    /* position:rerative; */
+}

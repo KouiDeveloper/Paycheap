@@ -1,0 +1,28 @@
+.btn{
+    border-radius: 100px;
+    height: 140px;
+    width: 140px;
+    text-align: center;
+    border: 3px solid rgb(212, 198, 198);
+}
+.btn-primary{
+    font-size: 10pt !important;
+}
+.col-lg-3{
+    margin-top:20px;
+}
+
+@media (min-width: 300px) and (max-width: 400px) {
+    h5{
+        font-size: 13pt !important;
+        font-weight: bold;
+    }
+}
+
+#icon-size{
+    font-size: 16pt !important;
+    margin-bottom: 9px;
+}
+.btn-success{
+    font-size: 11pt;
+}

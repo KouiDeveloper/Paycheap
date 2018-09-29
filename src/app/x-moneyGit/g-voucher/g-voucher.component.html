@@ -1,0 +1,199 @@
+<div class="container">
+  <ngx-loading [show]="loading" [config]="{ 
+          backdropBorderRadius: '14px',fullScreenBackdrop:true,
+          backdropBackgroundColour: 'rgb(240, 77, 213, 0.377)',
+          primaryColour: '#ffffff', secondaryColour: '#ffffff', tertiaryColour: '#ffffff' 
+      }">
+    <!-- put something that you want to show here -->
+  </ngx-loading>
+  <nav class="justify-content-center d-flex langlao">
+    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+        aria-selected="true">ສ້າງກິຟເວົາເຊີລ໌
+      </a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <div class="row2">
+        <div class="Sale-Git">
+          <!-- buy git by scan RQ-Code -->
+          <div class="bg-scan-QR-code">
+            <div class="form-row d-flex justify-content-center">
+              <div class="form-group col-md-6">
+                <i class="fas fa-dollar-sign"></i>
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price">
+              </div>
+            </div>
+            <button class="btn btn-primary d-block mx-auto mt-0 mb-2" (click)="GenerateQRCode(Alert_finish_generate_qr)">Generate
+              QR Code
+            </button>
+            <hr>
+            <div class="row">
+              <section class="g-one-sale-git mb-3 pb-3 col-md-6 col-12" style="background: rgba(147, 165, 165, 0.068)">
+                <div class="QRCode-that-we-have mt-3">
+                  <h6 class="langlao text-center btn-success p-3 mt-3">
+                    <i class="fas fa-gift mr-1"></i>ກິຟເວົາເຊີລ໌
+                  </h6>
+                  <div class="select-type mb-3">
+                    <div class="scrolling-wrapper lao-font text-center">
+                      <div class="card col-xl-3 col-lg-3 col-md-4 col-4">
+                        <img class="h-100 w-100" src="../../../assets/images/Voucher.png" alt="QRCode">
+                        <div class="form-group">
+                          <label class="font-7pt mb-0 langlao" for="">ລາຄາ: 50.000</label> <br>
+                          <label class="font-7pt mb-0" for="">CODE NUMBER</label>
+                          <input class="form-control col-12 font-7pt bg-code-num" type="text" value="12302546924789">
+                        </div>
+                      </div>
+
+                      <div class="card col-xl-3 col-lg-3 col-md-4 col-4">
+                        <img class="h-100 w-100" src="../../../assets/images/Voucher.png" alt="QRCode">
+                        <div class="form-group">
+                          <label class="font-7pt mb-0 langlao" for="">ລາຄາ: 50.000</label> <br>
+                          <label class="font-7pt mb-0" for="">CODE NUMBER</label>
+                          <input class="form-control col-12 font-7pt bg-code-num" type="text" value="12302546924789">
+                        </div>
+                      </div>
+
+                      <div class="card col-xl-3 col-lg-3 col-md-4 col-4">
+                        <img class="h-100 w-100" src="../../../assets/images/Voucher.png" alt="QRCode">
+                        <div class="form-group">
+                          <label class="font-7pt mb-0 langlao" for="">ລາຄາ: 150.000</label> <br>
+                          <label class="font-7pt mb-0" for="">CODE NUMBER</label>
+                          <input class="form-control  col-12 font-7pt bg-code-num" type="text" value="12302546924789">
+                        </div>
+                      </div>
+
+                      <div class="card col-xl-3 col-lg-3 col-md-4 col-4">
+                        <img class="h-100 w-100" src="../../../assets/images/Voucher.png" alt="QRCode">
+                        <div class="form-group">
+                          <label class="font-7pt mb-0 langlao" for="">ລາຄາ: 100.000</label> <br>
+                          <label class="font-7pt mb-0" for="">CODE NUMBER</label>
+                          <input class="form-control col-12 font-7pt bg-code-num" type="text" value="12302546924789">
+                        </div>
+                      </div>
+
+                      <div class="card col-xl-3 col-lg-3 col-md-4 col-4">
+                        <img class="h-100 w-100" src="../../../assets/images/Voucher.png" alt="QRCode">
+                        <div class="form-group">
+                          <label class="font-7pt mb-0 langlao" for="">ລາຄາ: 200.000</label> <br>
+                          <label class="font-7pt mb-0" for="">CODE NUMBER</label>
+                          <input class="form-control col-12 font-7pt bg-code-num" type="text" value="12302546924789">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+
+              <section class="g-two-sale-git mb-3 pb-3 col-md-6 col-12 langlao" style="background: rgba(133, 155, 155, 0.137)">
+                <div class="lao-font mt-3 scrolly">
+                  <h6 class="langlao text-center btn-success p-3 mt-3"><i class="fas fa-chart-line mr-1"></i>ຕາຕະລາງການເຄື່ອນໄຫວ</h6>
+
+                  <div class="table-sale-git scrollpy">
+                    <table class="table table-responsive">
+                      <table class="table table-bordered c-font-size-order-list">
+                        <thead class="thead-light">
+                          <tr>
+                            <th scope="col" id="c-size-name-product-make-order">ລ/ດ</th>
+                            <th scope="col" class="font-size-head-sale-git">ຄິວອາໂຄດຂອງຂ້ອຍ</th>
+                            <th scope="col" class="font-size-head-sale-git">ລະຫັດຄິວອາໂຄດ</th>
+                            <th scope="col" class="font-size-head-sale-git">ລາຄາ</th>
+                            <th scope="col" class="font-size-head-sale-git">ວັນທີ-ເດືອນ-ປີ</th>
+                            <th scope="col" class="font-size-head-sale-git">ສະຖານະ</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="tbody-sale-git">
+                            <td>1</td>
+                            <td><a class="link-myqrc" (click)="MyQRCode(Alert_MyQRCode)">My QR-CODE</a></td>
+                            <td>12302546924789</td>
+                            <td>50.000 kip</td>
+                            <td>25.5.2018</td>
+                            <td>Avaiable</td>
+                          </tr>
+                          <tr class="tbody-sale-git">
+                            <td>2</td>
+                            <td><a class="link-myqrc" (click)="MyQRCode(Alert_MyQRCode)">My QR-CODE</a></td>
+                            <td>12302546924789</td>
+                            <td>50.000 kip</td>
+                            <td>12.6.2018</td>
+                            <td>Avaiable</td>
+                          </tr>
+                          <tr class="tbody-sale-git">
+                            <td>3</td>
+                            <td><a class="link-myqrc" (click)="MyQRCode(Alert_MyQRCode)">My QR-CODE</a></td>
+                            <td>12302546924789</td>
+                            <td>150.000 kip</td>
+                            <td>20.7.2018</td>
+                            <td>Avaiable</td>
+                          </tr>
+                          <tr class="tbody-sale-git">
+                            <td>4</td>
+                            <td><a class="link-myqrc" (click)="MyQRCode(Alert_MyQRCode)">My QR-CODE</a></td>
+                            <td>12302546924789</td>
+                            <td>100.000 kip</td>
+                            <td>19.8.2018</td>
+                            <td>Avaiable</td>
+                          </tr>
+                          <tr class="tbody-sale-git">
+                            <td>5</td>
+                            <td><a class="link-myqrc" (click)="MyQRCode(Alert_MyQRCode)">My QR-CODE</a></td>
+                            <td>12302546924789</td>
+                            <td>200.000 kip</td>
+                            <td>30.9.2018</td>
+                            <td>Avaiable</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </table>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ***************************************** Momal **************************** -->
+<ng-template #Alert_finish_generate_qr let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title langlao"><b class="text-center"></b></h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p class="text-center langlao text-finish-buy-git">ສຳເລັດການ Generate Voucher</p>
+    <p class="text-center langlao">ຂອບໃຈທີ່ໃຊ້ບໍລິການ</p>
+    <p class="text-center"><i class="fas fa-praying-hands" id="thanks-icon"></i></p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light langlao" (click)="c('Close click')">ຕົກລົງ</button>
+  </div>
+</ng-template>
+
+<ng-template #Alert_MyQRCode let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title langlao"><b class="text-center"></b></h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h6 class="text-center mb-0">My QR CODE</h6>
+    <p class="text-center mt-0">
+      <img src="../../../assets/images/MyQRCode.jpg" alt="">
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light langlao" (click)="d('Cross click')">ຕົກລົງ</button>
+  </div>
+</ng-template>

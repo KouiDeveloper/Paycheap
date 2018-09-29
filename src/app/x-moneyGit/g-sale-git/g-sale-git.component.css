@@ -1,0 +1,109 @@
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.scrolling-wrapper .card {
+    display: inline-block;
+}
+
+.scrolling-wrapper-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.scrolling-wrapper-flexbox .card {
+    flex: 0 0 auto;
+    margin-right: 3px;
+}
+
+.scrolling-wrapper,
+.scrolling-wrapper-flexbox {
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scrolling-wrapper::-webkit-scrollbar,
+.scrolling-wrapper-flexbox::-webkit-scrollbar {
+    -webkit-overflow-scrolling: touch;
+
+}
+
+.color-content-transfer {
+    font-size: 12pt;
+    color: black;
+    line-height: 10px;
+}
+.list-group{
+    font-size: 11pt !important;
+    line-height: 0px !important;
+    padding: none !important;
+}
+.list-group-item{
+    padding: none !important;
+}
+
+
+.cursor-production-details{
+    cursor: pointer;
+}
+
+.text-add{
+    text-align: center;
+    height: 25px !important;
+    width: 25px !important;
+}
+
+.form-gorup{
+    width: 200px !important;
+}
+
+.img-size{
+    height: 100px !important;
+    width: 100px !important;
+}
+.font-7pt{
+    font-size: 7pt;
+}
+.bg-code-num{
+    background-color: rgb(235, 224, 224);
+    text-align: center;
+}
+.QRCode-that-we-have h6{
+    font-size: 11pt;
+    font-weight: 100;
+}
+#c-size-name-product-make-order{
+    min-width: 50px;
+    text-align: center;
+    font-size: 10pt;
+}
+.g-two-sale-git h6{
+    font-size: 11pt;
+    font-weight: 100;
+}
+.font-size-head-sale-git{
+    font-size: 10pt;
+    min-width: 140px;
+    text-align: center;
+}
+.tbody-sale-git{
+    text-align: center;
+    font-size: 8pt;
+    vertical-align: middle;
+}
+.link-myqrc{
+    cursor: pointer;
+
+}
+.link-myqrc:hover{
+    color:red !important;
+}
+.scrollpy{
+    max-height: auto;
+    height: auto;
+    overflow: hidden;
+    overflow-y: auto;
+}

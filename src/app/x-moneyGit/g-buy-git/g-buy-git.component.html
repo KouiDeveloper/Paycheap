@@ -1,0 +1,115 @@
+<div class="container">
+  <ngx-loading [show]="loading" [config]="{ 
+      backdropBorderRadius: '14px',fullScreenBackdrop:true,
+      backdropBackgroundColour: 'rgb(240, 77, 213, 0.377)',
+      primaryColour: '#ffffff', secondaryColour: '#ffffff', tertiaryColour: '#ffffff' 
+  }">
+    <!-- put something that you want to show here -->
+  </ngx-loading>
+  <nav class="justify-content-center d-flex langlao">
+    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+        aria-selected="true">ຊື້ຜ່ານ QR-Code
+      </a>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+        aria-selected="false">ຊື້ຜ່ານຄີຂໍ້ມູນ
+      </a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <div class="row">
+        <div class="col-md-8 offset-md-2 col-sm-12">
+          <!-- buy git by scan RQ-Code -->
+          <div class="bg-scan-QR-code">
+            <img class="mx-auto d-block rounded " src="../../../assets/images/Flag of Laos.png" alt="">
+            <button class="btn btn-primary d-block mx-auto" (click)="ScanQRCodeToBuyGit(Alert_ScanQRCodeToBuyGit_Price)">Scan
+              QR code</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- buy git by key info -->
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <div class="row">
+        <div class="col-md-8 offset-md-2 col-sm-12">
+          <div class="bg-scan-QR-code">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <i class="fas fa-id-card-alt"></i>
+                  <label for="idUser">ID_USER</label>
+                  <input type="number" class="form-control" id="idUser">
+                </div>
+                <div class="form-group col-md-6">
+                  <i class="fas fa-mobile-alt"></i>
+                  <label for="phoneUser">PHONE Number</label>
+                  <input type="number" class="form-control" id="phonUser">
+                </div>
+              </div>
+              <div class="form-group">
+                <i class="fas fa-barcode"></i>
+                <label for="serial">Serial</label>
+                <input type="number" class="form-control" id="serial">
+              </div>
+              <button type="submit" class="btn btn-primary d-block mx-auto col-6 p-2" (click)="sendToBuyGit(Alert_sendToBuyGit)">Sumbit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ***************************************** Momal **************************** -->
+<ng-template #Alert_sendToBuyGit let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title langlao"><b class="text-center"></b></h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <p class="text-center langlao text-finish-buy-git">ສຳເລັດການຊື້ເງິນGit</p>
+    <p class="text-center langlao">ຂອບໃຈທີ່ໃຊ້ບໍລິການ</p>
+    <p class="text-center"><i class="fas fa-praying-hands" id="thanks-icon"></i></p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light langlao" (click)="c('Close click')" [routerLink]="[ '/g-transaction']">ຕົກລົງ</button>
+  </div>
+</ng-template>
+
+<ng-template #Alert_ScanQRCodeToBuyGit_Price let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title langlao"><b class="text-center"></b></h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p class="text-center langlao text-finish-buy-git"><u>ຂໍ້ມູນສ່ວນຕົວ</u></p>
+    <div class="form-group col-md-12">
+      <i class="fas fa-id-card-alt"></i>
+      <label for="userName">Username</label>
+      <input type="text" class="form-control" id="userName" value="Mr: ABC">
+    </div>
+    <div class="form-group col-md-12">
+      <i class="fas fa-id-card-alt"></i>
+      <label for="idUser">ID_USER</label>
+      <input type="number" class="form-control" id="idUser" value="99999999">
+    </div>
+    <div class="form-group col-md-12">
+      <i class="fas fa-mobile-alt"></i>
+      <label for="phoneUser">PHONE Number</label>
+      <input type="number" class="form-control" id="phonUser" value="02055555555">
+    </div>
+    <p class="text-center langlao text-finish-buy-git mt-3 mb-0"><u>ກະລຸນາປ້ອນຈຳນວນເງິນທີ່ທານຕ້ອງການຊື້</u></p>
+    <label for="priceTobuy">Amount</label>
+    <input class="form-control" type="number">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light langlao" (click)="sendToBuyGit(Alert_sendToBuyGit); d('Cross click')">ຕົກລົງ</button>
+  </div>
+</ng-template>

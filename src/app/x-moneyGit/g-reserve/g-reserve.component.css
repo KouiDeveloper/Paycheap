@@ -1,0 +1,37 @@
+.bg-primary{
+    color:#fff !important;
+}
+.cursor-edit{
+    cursor: no-drop !important;
+}
+.min-width-sharp{
+    min-width: 50px !important;
+}
+.min-width-reserve-money{
+    min-width: 150px;
+}
+.list-reserve-content{
+    text-align: center;
+    font-size:10pt;
+}
+.table-bordered td{
+    vertical-align: middle !important;
+}
+.bg-pending{
+    background-color: rgb(186, 248, 40);
+    color:black;
+}
+.bg-finish{
+    background-color: green;
+    color: white;
+}
+.bg-outDate{
+    background-color: red;
+    color:yellow;
+}
+.scrollpy{
+    max-height: 300px;
+    height: auto;
+    overflow: hidden;
+    overflow-y: auto;
+}
