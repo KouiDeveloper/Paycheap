@@ -1,3 +1,5 @@
+import { GAdminOfflineComponent } from './X-moneyGit/g-admin-offline/g-admin-offline.component';
+import { GAdminOnlineComponent } from './X-moneyGit/g-admin-online/g-admin-online.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -32,6 +34,8 @@ import { TestModalComponent } from './X-moneyGit/test-modal/test-modal.component
 import { GTransferMoneyComponent } from './X-moneyGit/g-transfer-money/g-transfer-money.component';
 import { GReserveComponent } from './X-moneyGit/g-reserve/g-reserve.component';
 import { GProfileComponent } from './X-moneyGit/g-profile/g-profile.component';
+import { GVoucherComponent } from './X-moneyGit/g-voucher/g-voucher.component';
+import { GAdminComponent } from './X-moneyGit/g-admin/g-admin.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexComponent },
@@ -65,7 +69,11 @@ const routes: Routes = [
   { path: 'g-sale-git', component: GSaleGitComponent },
   { path: 'g-transfer-money', component: GTransferMoneyComponent },
   { path: 'g-reserve', component: GReserveComponent },
-  { path: 'g-profile', component: GProfileComponent }
+  { path: 'g-profile', component: GProfileComponent },
+  { path: 'g-voucher', component: GVoucherComponent },
+  { path: 'g-admin', component: GAdminComponent },
+  { path: 'g-admin-online', component: GAdminOnlineComponent },
+  { path: 'g-admin-offline', component: GAdminOfflineComponent }
 ];
 
 @NgModule({

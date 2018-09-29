@@ -1,10 +1,9 @@
 import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';  // <<<< import it here
+import { FormsModule } from '@angular/forms'; // <<<< import it here
 import { WebsocketDataServiceService } from '../websocket-data-service.service';
 import { ChatService, Message } from '../chat.service';
 import { WebsocketService } from '../websocket.service';
-
 
 @Component({
   selector: 'app-login',
@@ -12,7 +11,6 @@ import { WebsocketService } from '../websocket.service';
   styleUrls: ['./login.component.css'],
   providers: [WebsocketDataServiceService, ChatService, WebsocketService]
 })
-
 export class LoginComponent implements OnInit, OnDestroy {
   private _message: Message;
   private _newUser: any = {};
@@ -34,32 +32,45 @@ export class LoginComponent implements OnInit, OnDestroy {
   private _trans: any = [];
 
   /// WEBSOCKET LAUNCHING
-  constructor(private websocketDataServiceService: WebsocketDataServiceService, private router: Router) {
+  constructor(
+    private websocketDataServiceService: WebsocketDataServiceService,
+    private router: Router
+  ) {
     this.loadClient();
-    if(this._client.logintoken){
-      router.navigate(['/all-menu']);
+    if (this._client.logintoken) {
+      router.navigate(['/index']);
     }
-    this._subs.push(this.websocketDataServiceService.clientSource.subscribe(client => {
+    this._subs.push(
+      this.websocketDataServiceService.clientSource.subscribe(client => {
         this.readClient(client);
-    }));
-    this._subs.push(this.websocketDataServiceService.newUserSource.subscribe(client => {
+      })
+    );
+    this._subs.push(
+      this.websocketDataServiceService.newUserSource.subscribe(client => {
         this.readNewUser(client);
+      })
+    );
+    this._subs.push(
+      this.websocketDataServiceService.eventSource.subscribe(events => {
+        this.readServerEvent(events);
+      })
+    );
+    this._subs.push(
+      this.websocketDataServiceService.currentUserSource
+        .retry()
+        .subscribe(user => {
+          this.readCurrentUserDetail(user);
+        })
+    );
 
-    }));
-    this._subs.push(this.websocketDataServiceService.eventSource.subscribe(events => {
-      this.readServerEvent(events);
-    }));
-    this._subs.push(this.websocketDataServiceService.currentUserSource.retry().subscribe(user => {
-      this.readCurrentUserDetail(user);
-    }));
-
-    this._subs.push(this.websocketDataServiceService.otherSource.subscribe(msg => {
-     // this._otherMessage = msg;
-      this.readOtherMessage(msg);
-    }));
-
+    this._subs.push(
+      this.websocketDataServiceService.otherSource.subscribe(msg => {
+        // this._otherMessage = msg;
+        this.readOtherMessage(msg);
+      })
+    );
   }
-//// END WEBSOCKET LAUNCHING
+  //// END WEBSOCKET LAUNCHING
 
   /// OTHER FUNCTIONS
   private clearJSONValue(u) {
@@ -84,7 +95,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     console.log('STOP SERVICE');
-    
   }
   saveClient() {
     this.websocketDataServiceService.setClient(this._client);
@@ -101,8 +111,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.saveClient();
     }
   }
-/// INIT FUNCTIONS
-
+  /// INIT FUNCTIONS
 
   /// *************RECEIVING  */
   readClient(c): any {
@@ -112,7 +121,9 @@ export class LoginComponent implements OnInit, OnDestroy {
         this._client = c;
         switch (this._client.data['command']) {
           case 'heart-beat':
-            if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+            if (
+              this._client.data['message'].toLowerCase().indexOf('error') > -1
+            ) {
               console.log(this._client.data['message']);
             } else {
               // this._client.data['user'] = u;
@@ -124,23 +135,29 @@ export class LoginComponent implements OnInit, OnDestroy {
             // // alert(this._client.data['message']);
             break;
           case 'login':
-            if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
-              console.log(this._client.data['message']);              
+            if (
+              this._client.data['message'].toLowerCase().indexOf('error') > -1
+            ) {
+              console.log(this._client.data['message']);
             } else {
               this.saveClient();
               console.log('LOGIN OK');
-              this.router.navigate(['/all-menu']);
+              this.router.navigate(['/index']);
             }
             break;
           case 'get-client':
-            if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+            if (
+              this._client.data['message'].toLowerCase().indexOf('error') > -1
+            ) {
               console.log(this._client.data['message']);
             } else {
               console.log('get-client OK');
             }
             break;
           case 'shake-hands':
-            if (this._client.data['message'].toLowerCase().indexOf('error') > -1) {
+            if (
+              this._client.data['message'].toLowerCase().indexOf('error') > -1
+            ) {
               // // console.log(this._client);
               console.log(this._client.data['message']);
             } else {
@@ -157,20 +174,18 @@ export class LoginComponent implements OnInit, OnDestroy {
     } catch (error) {
       // alert(error);
     }
-    
   }
   readNewUser(n): any {
     // this._newUser;
-    if(n !==undefined){
+    if (n !== undefined) {
       this._newUser.data = n.data;
     }
-    
   }
   readServerEvent(event: any): any {
     // this._server_event
     const d = event;
-    if(d!==undefined){
-      this._server_event.push(d)
+    if (d !== undefined) {
+      this._server_event.push(d);
       if (d['command'] !== undefined) {
         // console.log('changed from server');
         // console.log(d['command'] + d['command2']);
@@ -179,7 +194,9 @@ export class LoginComponent implements OnInit, OnDestroy {
             console.log(d['client']['data']['message']);
             break;
           case 'login-changed':
-            console.log(d['client']['logintoken'] + '   -   ' + d['client']['logintime']);
+            console.log(
+              d['client']['logintoken'] + '   -   ' + d['client']['logintime']
+            );
             break;
           default:
             break;
@@ -187,18 +204,16 @@ export class LoginComponent implements OnInit, OnDestroy {
         // // console.log(msg);
       }
     }
-    
   }
   readCurrentUserDetail(c: any): any {
     // this._currentUserDetail
-    if(c!==undefined){
+    if (c !== undefined) {
       this._currentUserdetail = c;
     }
-    
   }
   readOtherMessage(m: any): any {
     // this._message
-    if(m!==undefined){
+    if (m !== undefined) {
       this._message = m;
     }
   }
@@ -215,7 +230,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     const msg = {
       title: '',
       data: {},
-      other: {}, // ...
+      other: {} // ...
     };
     //msg.data['transaction'] = this.createTransaction(); // NEED TO BE DONE BEOFORE SEND MESSAGE
     this.websocketDataServiceService.setOtherMessage(msg);
@@ -236,9 +251,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   login() {
     // alert(JSON.stringify(this._loginUser));
     //this._client.data.transaction = this.createTransaction(); // NEED TO BE DONE BEOFORE SEND MESSAGE
-    this.websocketDataServiceService.refreshClient();    
+    this.websocketDataServiceService.refreshClient();
     this.websocketDataServiceService.login(this._loginUser); // return to this._client
-    
+
     //this.clearJSONValue(this._loginUser);
   }
 
@@ -246,16 +261,19 @@ export class LoginComponent implements OnInit, OnDestroy {
     console.log(JSON.stringify(this._client));
     this.websocketDataServiceService.refreshClient();
     this.websocketDataServiceService.setClient(this._client);
-    this.router.navigate([com]).then(res => {
-     
-    }).catch(err => {
-      console.log(err);
-    });
+    this.router
+      .navigate([com])
+      .then(res => {})
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   createTransaction() {
     let x;
-    this._trans.push(x = this.websocketDataServiceService.createTransaction());
+    this._trans.push(
+      (x = this.websocketDataServiceService.createTransaction())
+    );
     return x;
   }
 
