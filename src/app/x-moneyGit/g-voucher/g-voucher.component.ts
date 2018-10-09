@@ -26,7 +26,7 @@ export class GVoucherComponent implements OnInit {
     setTimeout(() => {
       this.loading = false;
       this.modalService.open(Alert_finish_generate_qr, { centered: true });
-    }, 3000);
+    }, 2000);
   }
 
   MyQRCode(Alert_MyQRCode) {
@@ -34,6 +34,6 @@ export class GVoucherComponent implements OnInit {
     setTimeout(() => {
       this.loading = false;
       this.modalService.open(Alert_MyQRCode, { centered: true });
-    }, 2000);
+    }, 1000);
   }
 }

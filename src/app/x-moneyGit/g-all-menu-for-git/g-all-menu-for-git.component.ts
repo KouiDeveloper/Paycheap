@@ -43,4 +43,7 @@ export class GAllMenuForGitComponent implements OnInit {
   gAddmin() {
     this.router.navigate(['/g-admin']);
   }
+  gPay() {
+    this.router.navigate(['/g-pay']);
+  }
 }

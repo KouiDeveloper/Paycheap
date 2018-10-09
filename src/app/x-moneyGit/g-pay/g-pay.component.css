@@ -1,0 +1,42 @@
+.bg-detail-gPay{
+    background-color: #bdfdc7;
+    padding: 10px;
+    border: solid 1px whitesmoke;
+}
+
+.bg-list-gPay{
+    background-color: #dbffde;
+    padding: 10px;
+}
+.edit-font-gPay .form-group label{
+    font-size: 8pt;
+    font-weight: normal;
+    /* margin-top:5px; */
+}
+.edit-font-gPay .form-group input{
+    font-size: 9pt;
+}
+
+.bg-list-gPay th{
+    font-size: 10pt;
+    text-align: center;
+    vertical-align: middle    
+}
+.bg-list-gPay td{
+    font-size: 9pt;
+    text-align: center;
+    vertical-align: middle
+}
+.bg-result-money{
+    background-color: #9ffab5;
+}
+.font-12pt{
+    font-size: 12pt !important;
+    font-weight: bold;
+}
+.fon-10pt{
+    font-size: 10pt;
+}
+.hero{
+    background-color: yellow !important;
+}
