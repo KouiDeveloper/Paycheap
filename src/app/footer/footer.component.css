@@ -21,3 +21,10 @@ body {
     font-size: 26pt;
     transition: 0.5s;
 }
+
+.list-inline li {
+    font-size: 9pt;
+}
+.text-center a{
+    position: relative;
+}

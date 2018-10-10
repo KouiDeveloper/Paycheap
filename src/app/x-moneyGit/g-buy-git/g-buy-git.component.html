@@ -9,10 +9,10 @@
   <nav class="justify-content-center d-flex langlao">
     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
-        aria-selected="true">ຊື້ຜ່ານ QR-Code
+        aria-selected="true"><i class="fas fa-qrcode"></i> ຊື້ຜ່ານ QR-Code
       </a>
       <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
-        aria-selected="false">ຊື້ຜ່ານຄີຂໍ້ມູນ
+        aria-selected="false"><i class="far fa-keyboard"></i> ຊື້ຜ່ານຄີຂໍ້ມູນ
       </a>
     </div>
   </nav>
@@ -23,7 +23,8 @@
           <!-- buy git by scan RQ-Code -->
           <div class="bg-scan-QR-code">
             <img class="mx-auto d-block rounded " src="../../../assets/images/Flag of Laos.png" alt="">
-            <button class="btn btn-primary d-block mx-auto" (click)="ScanQRCodeToBuyGit(Alert_ScanQRCodeToBuyGit_Price)">Scan
+            <button class="btn btn-primary d-block mx-auto" (click)="ScanQRCodeToBuyGit(Alert_ScanQRCodeToBuyGit_Price)"><i
+                class="fas fa-search"></i> Scan
               QR code</button>
           </div>
         </div>
@@ -52,7 +53,8 @@
                 <label for="serial">Serial</label>
                 <input type="number" class="form-control" id="serial">
               </div>
-              <button type="submit" class="btn btn-primary d-block mx-auto col-6 p-2" (click)="sendToBuyGit(Alert_sendToBuyGit)">Sumbit</button>
+              <button type="submit" class="btn btn-primary d-block mx-auto col-6 p-2" (click)="sendToBuyGit(Alert_sendToBuyGit)"><i
+                  class="far fa-check-circle"></i> Submit</button>
             </form>
           </div>
         </div>

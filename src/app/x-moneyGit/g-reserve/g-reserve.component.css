@@ -35,3 +35,6 @@
     overflow: hidden;
     overflow-y: auto;
 }
+.thead-light th{
+    font-size: 10pt;
+}

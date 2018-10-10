@@ -149,6 +149,10 @@ body {
 /* end search */
 
 
+.nav-item{
+    border: 1px solid rgba(221, 214, 214, 0.664) !important;
+}
+
 /* hidden start */
 
 @media (max-width: 767px) {

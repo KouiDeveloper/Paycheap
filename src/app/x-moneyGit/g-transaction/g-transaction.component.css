@@ -221,3 +221,13 @@
 
 
 /* end style icon refill money */
+
+@media (min-width: 300px) and (max-width: 600px){
+    .g-tran-one h3{
+        font-size: 16pt;
+    }
+    .g-tran-one h5{
+        font-size: 14pt;
+    }
+    
+}

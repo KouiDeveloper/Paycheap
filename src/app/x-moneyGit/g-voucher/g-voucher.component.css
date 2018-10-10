@@ -67,6 +67,9 @@
 .font-7pt{
     font-size: 7pt;
 }
+.font-10pt{
+    font-size: 10pt !important;
+}
 .bg-code-num{
     background-color: rgb(235, 224, 224);
     text-align: center;
@@ -111,4 +114,13 @@
     font-size: 50pt;
     color:green;
     text-align: center;
+}
+.nav-item{
+    font-size: 10pt;
+}
+.form-group label{
+    font-size: 9pt;
+}
+.form-group input{
+    font-size: 9pt;
 }
