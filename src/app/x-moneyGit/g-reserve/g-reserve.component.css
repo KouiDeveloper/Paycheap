@@ -38,3 +38,6 @@
 .thead-light th{
     font-size: 10pt;
 }
+.bg-head-table{
+    background-color: rgb(245, 236, 236);
+}

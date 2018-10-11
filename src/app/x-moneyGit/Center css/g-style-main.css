@@ -13,6 +13,10 @@
     font-size: 9pt;
     margin-top: 12px;
 }
+.btn-success{
+    font-size: 9pt;
+    margin-top:12px;
+}
 .bg-scan-QR-code{
     background-color: rgb(245, 236, 236) !important;
     padding: 15px;

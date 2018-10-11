@@ -107,3 +107,6 @@
     overflow: hidden;
     overflow-y: auto;
 }
+.bg-head-table{
+    background-color: rgb(245, 236, 236);
+}
