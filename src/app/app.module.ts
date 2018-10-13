@@ -47,6 +47,7 @@ import { GProfileComponent } from './X-moneyGit/g-profile/g-profile.component';
 import { GVoucherComponent } from './X-moneyGit/g-voucher/g-voucher.component';
 import { GAdminComponent } from './X-moneyGit/g-admin/g-admin.component';
 import { GPayComponent } from './x-moneyGit/g-pay/g-pay.component';
+import { SWelcomeShoppingComponent } from './x-shopping/s-welcome-shopping/s-welcome-shopping.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { GPayComponent } from './x-moneyGit/g-pay/g-pay.component';
     GProfileComponent,
     GVoucherComponent,
     GAdminComponent,
-    GPayComponent
+    GPayComponent,
+    SWelcomeShoppingComponent
   ],
   imports: [
     BrowserModule,

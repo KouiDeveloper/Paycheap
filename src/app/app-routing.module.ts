@@ -35,6 +35,7 @@ import { GProfileComponent } from './X-moneyGit/g-profile/g-profile.component';
 import { GVoucherComponent } from './X-moneyGit/g-voucher/g-voucher.component';
 import { GAdminComponent } from './X-moneyGit/g-admin/g-admin.component';
 import { GPayComponent } from './x-moneyGit/g-pay/g-pay.component';
+import { SWelcomeShoppingComponent } from './x-shopping/s-welcome-shopping/s-welcome-shopping.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexComponent },
@@ -71,7 +72,8 @@ const routes: Routes = [
   { path: 'g-profile', component: GProfileComponent },
   { path: 'g-voucher', component: GVoucherComponent },
   { path: 'g-admin', component: GAdminComponent },
-  { path: 'g-pay', component: GPayComponent}
+  { path: 'g-pay', component: GPayComponent},
+  { path: 'welcome-shopping', component: SWelcomeShoppingComponent}
 ];
 
 @NgModule({

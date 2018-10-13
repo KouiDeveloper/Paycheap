@@ -1,11 +1,11 @@
 .btn{
     border-radius: 100px;
-    height: 140px;
-    width: 140px;
+    height: 120px;
+    width: 120px;
     text-align: center;
     border: 3px solid rgb(212, 198, 198);
 }
-.btn-primary{
+.btn-outline-secondary{
     font-size: 10pt !important;
 }
 .col-lg-3{
@@ -23,6 +23,6 @@
     font-size: 16pt !important;
     margin-bottom: 9px;
 }
-.btn-success{
-    font-size: 11pt;
+.btn-outline-success{
+    font-size: 10pt;
 }

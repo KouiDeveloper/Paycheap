@@ -2,13 +2,14 @@
 
 .bgheader {
     color: #fff;
-    background: linear-gradient(to right, rgb(165, 4, 138), rgb(238, 7, 238));
+    /* background: linear-gradient(to right, rgb(165, 4, 138), rgb(238, 7, 238)); */
+    background: #e0dbdb;
     border-color: rgb(212, 198, 198) !important;
     border-bottom: 3px solid;
   
 }
 .margin-bottom{
-    margin-bottom: 20px !important;
+    margin-bottom: 100px !important;
 }
 
 a {
@@ -61,13 +62,14 @@ a {
 }
 
 .change-head-right-color {
-    color: #f9f9f9 !important;
+    color: #646262 !important;
     font-size: 12px;
 }
 
 .change-head-right-color:hover {
-    color: #d7d7d7 !important;
+    color: #272525 !important;
 }
+
 
 #head-drop-font {
     color: rgb(114, 114, 114);
